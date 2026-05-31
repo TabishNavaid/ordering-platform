@@ -1,0 +1,688 @@
+:root {
+    /* Color Palette: Farmers Market Editorial */
+    --primary-color: #9F4A38; /* Deep Terracotta */
+    --primary-hover: #813B2C;
+    --secondary-color: #D9A05B; /* Muted Ochre */
+    --accent-color: #8E9B70; /* Sage */
+    --bg-color: #F4EFE6; /* Warm Linen */
+    --surface-color: #FCFAF8; /* Soft Off-White */
+    --text-main: #2A2421; /* Rich Espresso */
+    --text-light: #7A6F68; /* Clay Gray */
+    --border-color: #E6D8C8; /* Warm Sand */
+    --error-color: #C05746;
+    --success-color: #6C805B;
+    
+    /* Typography */
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'DM Sans', sans-serif;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2.5rem;
+    --spacing-xl: 4rem;
+    
+    /* Utilities */
+    --border-radius: 4px;
+    --shadow-sm: 0 4px 12px rgba(42, 36, 33, 0.03);
+    --shadow-md: 0 8px 24px rgba(159, 74, 56, 0.08); /* Warm shadow */
+}
+
+/* Reset & Basics */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-main);
+    background-color: var(--bg-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+}
+
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: var(--spacing-sm);
+    letter-spacing: -0.01em;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--primary-hover);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    position: relative;
+    z-index: 1;
+}
+
+/* Layout */
+main {
+    flex: 1;
+    padding: var(--spacing-xl) 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header */
+.site-header, .admin-header {
+    background-color: var(--surface-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: var(--spacing-sm) 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-family: var(--font-heading);
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: 0.02em;
+    font-style: italic;
+}
+
+.main-nav {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+}
+
+.main-nav a {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.main-nav a:hover {
+    color: var(--primary-color);
+}
+
+.cart-link {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.badge {
+    background-color: var(--secondary-color);
+    color: var(--text-main);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+}
+
+/* Footer */
+.site-footer {
+    background-color: var(--surface-color);
+    border-top: 1px solid var(--border-color);
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Buttons - Handcrafted Feel */
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 3px 8px 4px 6px; /* Organic stamp feel */
+    box-shadow: 2px 3px 0px rgba(42,36,33, 0.15);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    letter-spacing: 0.02em;
+}
+
+.btn:hover {
+    background-color: var(--primary-hover);
+    color: #fff;
+    transform: translate(1px, 1px);
+    box-shadow: 1px 2px 0px rgba(42,36,33, 0.15);
+}
+
+.btn:active {
+    transform: translate(2px, 3px);
+    box-shadow: none;
+}
+
+.btn-secondary {
+    background-color: var(--surface-color);
+    color: var(--text-main);
+    border: 1px solid var(--text-main);
+    box-shadow: 2px 3px 0px var(--text-main);
+}
+
+.btn-secondary:hover {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    box-shadow: 1px 2px 0px var(--text-main);
+}
+
+.btn-small {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+}
+
+.btn-danger {
+    background-color: var(--error-color);
+    box-shadow: 2px 3px 0px rgba(192,87,70, 0.3);
+}
+
+.btn-danger:hover {
+    background-color: #9F4435;
+    box-shadow: 1px 2px 0px rgba(192,87,70, 0.3);
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    background-color: var(--surface-color);
+    color: var(--text-main);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 2px rgba(217, 160, 91, 0.2);
+}
+
+.auth-card {
+    max-width: 400px;
+    margin: 0 auto;
+    background: var(--surface-color);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.auth-card h2, .auth-card h3 {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    padding-bottom: var(--spacing-sm);
+}
+
+.auth-card h2::after, .auth-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 1px;
+    background-color: var(--secondary-color);
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.product-card {
+    background: var(--surface-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.product-image {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    background-color: var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.product-image-placeholder {
+    width: 100%;
+    height: 240px;
+    background-color: #E6D8C8;
+    background-image: radial-gradient(#D2C0AB 1px, transparent 1px);
+    background-size: 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--border-color);
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-style: italic;
+}
+
+.product-info {
+    padding: var(--spacing-md);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-main);
+    font-family: var(--font-heading);
+}
+
+.product-price {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-sm);
+    font-family: var(--font-body);
+}
+
+.product-desc {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-md);
+    flex: 1;
+}
+
+.product-actions {
+    margin-top: auto;
+}
+
+.product-actions .btn {
+    width: 100%;
+}
+
+/* Tables */
+.table-responsive {
+    overflow-x: auto;
+    background: var(--surface-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.table th, .table td {
+    padding: 1.2rem var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.table th {
+    background-color: transparent;
+    font-weight: 600;
+    color: var(--text-light);
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Badges / Status */
+.status-badge {
+    display: inline-block;
+    padding: 0.35rem 0.8rem;
+    border-radius: 2px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 1px solid;
+}
+
+.status-pending { background-color: transparent; color: var(--text-main); border-color: var(--text-main); }
+.status-confirmed { background-color: var(--secondary-color); color: var(--text-main); border-color: var(--secondary-color); }
+.status-preparing { background-color: var(--border-color); color: var(--text-main); border-color: var(--border-color); }
+.status-ready { background-color: var(--accent-color); color: #fff; border-color: var(--accent-color); }
+.status-completed { background-color: var(--primary-color); color: #fff; border-color: var(--primary-color); }
+.status-cancelled { background-color: transparent; color: var(--error-color); border-color: var(--error-color); }
+
+/* Admin Dashboard Cards */
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.stat-card {
+    background: var(--surface-color);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    position: relative;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.stat-card h3 {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.stat-card .value {
+    font-size: 2.5rem;
+    font-weight: 400;
+    font-family: var(--font-heading);
+    color: var(--text-main);
+}
+
+/* Alerts */
+.alert {
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-md);
+    border-left: 4px solid;
+}
+
+.alert-error {
+    background-color: #FDF3F1;
+    color: var(--error-color);
+    border-color: var(--error-color);
+}
+
+.alert-success {
+    background-color: #F3F6F0;
+    color: var(--success-color);
+    border-color: var(--success-color);
+}
+
+/* Utilities */
+.text-right { text-align: right; }
+.mt-1 { margin-top: var(--spacing-sm); }
+.mt-2 { margin-top: var(--spacing-md); }
+.mb-1 { margin-bottom: var(--spacing-sm); }
+.mb-2 { margin-bottom: var(--spacing-md); }
+.flex { display: flex; }
+.justify-between { justify-content: space-between; }
+.align-center { align-items: center; }
+.gap-1 { gap: var(--spacing-sm); }
+
+/* ==========================================================================
+   Mobile Optimization
+   ========================================================================== */
+@media (max-width: 768px) {
+    :root {
+        --spacing-md: 1rem;
+        --spacing-lg: 1.5rem;
+        --spacing-xl: 2rem;
+    }
+
+    .header-inner {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        padding-top: var(--spacing-sm);
+        padding-bottom: var(--spacing-sm);
+    }
+    
+    .logo a {
+        font-size: 1.5rem;
+    }
+
+    .main-nav {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+    }
+
+    .stat-card .value {
+        font-size: 2rem;
+    }
+
+    .auth-card {
+        padding: var(--spacing-md);
+        margin: var(--spacing-md) auto;
+        width: calc(100% - calc(var(--spacing-md) * 2));
+    }
+    
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image, .product-image-placeholder {
+        height: 200px;
+    }
+}
+
+/* ==========================================================================
+   UX Polish — Empty States
+   ========================================================================== */
+.empty-state {
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-md);
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.empty-state-icon {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-md);
+    display: block;
+    animation: empty-bounce 2.4s ease-in-out infinite;
+}
+
+@keyframes empty-bounce {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-8px); }
+}
+
+.empty-state h2 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.empty-state p {
+    color: var(--text-light);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.05rem;
+}
+
+/* ==========================================================================
+   UX Polish — Pulsing Status Badge (for in-progress orders)
+   ========================================================================== */
+.status-badge--pulse {
+    position: relative;
+}
+
+.status-badge--pulse::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 4px;
+    border: 2px solid currentColor;
+    opacity: 0;
+    animation: status-pulse 2s ease-out infinite;
+}
+
+@keyframes status-pulse {
+    0%   { opacity: 0.6; transform: scale(1); }
+    70%  { opacity: 0;   transform: scale(1.18); }
+    100% { opacity: 0;   transform: scale(1.18); }
+}
+
+/* ==========================================================================
+   UX Polish — Checkout Button Loading State
+   ========================================================================== */
+.btn--loading {
+    opacity: 0.75;
+    pointer-events: none;
+    cursor: not-allowed;
+    position: relative;
+    padding-left: 2.8rem;
+}
+
+.btn--loading::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    width: 1rem;
+    height: 1rem;
+    margin-top: -0.5rem;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   UX Polish — Toast Notification
+   ========================================================================== */
+.toast-container {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    pointer-events: none;
+}
+
+.toast {
+    background: var(--text-main);
+    color: #fff;
+    padding: 0.85rem 1.25rem;
+    border-radius: var(--border-radius);
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    box-shadow: 0 8px 24px rgba(42,36,33,0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    pointer-events: auto;
+    animation: toast-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    max-width: 320px;
+}
+
+.toast.toast--success { border-left: 4px solid var(--success-color); }
+.toast.toast--error   { border-left: 4px solid var(--error-color); }
+
+.toast.toast--out {
+    animation: toast-out 0.3s ease forwards;
+}
+
+@keyframes toast-in {
+    from { opacity: 0; transform: translateX(30px) scale(0.95); }
+    to   { opacity: 1; transform: translateX(0)   scale(1);    }
+}
+
+@keyframes toast-out {
+    from { opacity: 1; transform: translateX(0); }
+    to   { opacity: 0; transform: translateX(30px); }
+}
+
+/* ==========================================================================
+   UX Polish — Admin Low-Stock Alert
+   ========================================================================== */
+.alert-low-stock {
+    background-color: #FFF8EC;
+    color: #7A5C1E;
+    border-left: 4px solid var(--secondary-color);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-md);
+    font-size: 0.95rem;
+}
+
+.alert-low-stock a {
+    color: inherit;
+}
