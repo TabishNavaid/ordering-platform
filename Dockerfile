@@ -19,5 +19,5 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 # Inform Railway to route traffic to port 8080
 EXPOSE 8080
 
-# Run everything through the process supervisor manager
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+# Dynamically swap 8080 for Railway's real port variable on boot, then start supervisor
+CMD sed -i "s/8080/${PORT}/g" /etc/nginx/http.d/default.conf && exec /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
