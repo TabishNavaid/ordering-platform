@@ -1,0 +1,8 @@
+# Local environment or secret files
+.env
+config.local.php
+secrets.txt
+
+# Operating system files
+.DS_Store
+Thumbs.db
