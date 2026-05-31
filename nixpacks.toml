@@ -14,5 +14,8 @@ nixPkgs = [
   "php82Extensions.bcmath" 
 ]
 
+[phases.build]
+cmds = ["echo 'Building production web environment...'"]
+
 [start]
 cmd = "nixpacks-php-server"
