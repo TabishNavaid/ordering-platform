@@ -1,15 +1,16 @@
 [phases.setup]
-nixPkgs = [
-    "nginx",
-    "php82",
-    "php82Extensions.pdo",
-    "php82Extensions.pdo_mysql",
-    "php82Extensions.mbstring",
-    "php82Extensions.curl",
-    "php82Extensions.gd",
-    "php82Extensions.exif",
-    "php82Extensions.bcmath"
+nixPkgs = [ 
+  "nginx", 
+  "php82", 
+  "php82Extensions.pdo", 
+  "php82Extensions.pdo_mysql", 
+  "php82Extensions.mbstring", 
+  "php82Extensions.curl", 
+  "php82Extensions.gd", 
+  "php82Extensions.exif", 
+  "php82Extensions.bcmath" 
 ]
 
 [start]
-cmd = "nginx -g 'daemon off;' & php-fpm -F"
+cmd = "php-fpm -D && nginx -g 'daemon off;'"
+
