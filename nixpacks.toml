@@ -2,7 +2,6 @@ providers = ["php"]
 
 [phases.setup]
 nixPkgs = [ 
-  "nginx", 
   "php82", 
   "php82Extensions.pdo", 
   "php82Extensions.pdo_mysql", 
@@ -13,8 +12,5 @@ nixPkgs = [
   "php82Extensions.bcmath" 
 ]
 
-[phases.build]
-cmds = ["echo 'Building production web environment...'"]
-
 [start]
-cmd = "nixpacks-php-server"
+cmd = "php -S 0.0.0.0:$PORT"
